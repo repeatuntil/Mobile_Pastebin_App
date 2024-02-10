@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:backgroundTintMode="multiply">
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="414dp"
+        android:layout_height="135dp"
+        android:background="#79ADDC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageSize11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_12_1" />
+
+    <View
+        android:id="@+id/sep_line1"
+        android:layout_width="2dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="273dp"
+        android:layout_marginTop="16dp"
+        android:background="#08605F"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+    <View
+        android:id="@+id/sep_line2"
+        android:layout_width="2dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="16dp"
+        android:background="#08605F"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+    <View
+        android:id="@+id/main_line"
+        android:layout_width="413dp"
+        android:layout_height="2dp"
+        android:background="#08605F"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/plain_text_input"
+        android:layout_width="410dp"
+        android:layout_height="690dp"
+        android:layout_marginTop="136dp"
+        android:inputType="text"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+    <ImageView
+        android:id="@+id/imageFont11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="69dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_12_1" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="34dp"
+        android:layout_height="31dp"
+        android:background="@drawable/undo_button"
+        app:srcCompat="@drawable/underline"
+        tools:layout_editor_absoluteX="366dp"
+        tools:layout_editor_absoluteY="88dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:background="@drawable/undo_button"
+        android:src="@android:drawable/btn_star"
+        app:srcCompat="@drawable/italic_1"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="81dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="41dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/undo_button"
+        android:src="@android:drawable/btn_star"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bold_1" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="44dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/undo_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/undo_left_round_1" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="47dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="207dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/undo_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/resource_do" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="69dp"
+        android:background="@drawable/button3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/palette_print_1" />
+
+    <Spinner
+        android:id="@+id/fonts_spinner"
+        style="@android:style/Widget.Spinner.DropDown"
+        android:layout_width="104dp"
+        android:layout_height="42dp"
+        android:background="@drawable/for_spins"
+        android:backgroundTint="#08605F"
+        android:entries="@array/font_arrays"
+        android:prompt="@string/font_prompt"
+        android:spinnerMode="dropdown"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/imageSize11"
+        app:layout_constraintTop_toTopOf="@+id/imageSize11" />
+
+    <Spinner
+        android:id="@+id/fonts_spinner_2"
+        style="@android:style/Widget.Spinner.DropDown"
+        android:layout_width="104dp"
+        android:layout_height="42dp"
+        android:background="@drawable/for_spins"
+        android:backgroundTint="#08605F"
+        android:entries="@array/sizes_arrays"
+        android:prompt="@string/size_prompt"
+        android:spinnerMode="dropdown"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/imageFont11"
+        app:layout_constraintTop_toTopOf="@+id/imageFont11" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
