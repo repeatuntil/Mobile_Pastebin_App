@@ -83,7 +83,7 @@
         app:layout_constraintStart_toStartOf="@+id/imageView" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
+        android:id="@+id/signInButton"
         android:layout_width="130dp"
         android:layout_height="56dp"
         android:layout_marginStart="38dp"
