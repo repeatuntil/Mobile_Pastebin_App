@@ -135,7 +135,7 @@
         android:background="@drawable/button3"
         app:layout_constraintEnd_toEndOf="@+id/mainPanel"
         app:layout_constraintTop_toTopOf="@+id/mainPanel"
-        app:srcCompat="@drawable/sort_one_1"
+        app:srcCompat="@drawable/sort_one"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
