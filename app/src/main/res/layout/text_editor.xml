@@ -55,8 +55,8 @@
 
     <EditText
         android:id="@+id/plain_text_input"
-        android:layout_width="410dp"
-        android:layout_height="690dp"
+        android:layout_width="404dp"
+        android:layout_height="589dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="132dp"
         android:inputType="text"
@@ -119,8 +119,8 @@
         android:prompt="@string/font_prompt"
         android:spinnerMode="dropdown"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/imageSize11"
-        app:layout_constraintTop_toTopOf="@+id/imageSize11" />
+        app:layout_constraintStart_toStartOf="@+id/imageSize1"
+        app:layout_constraintTop_toTopOf="@+id/imageSize1" />
 
     <Spinner
         android:id="@+id/size_spinner"
@@ -133,15 +133,17 @@
         android:prompt="@string/size_prompt"
         android:spinnerMode="dropdown"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@+id/imageFont11"
-        app:layout_constraintTop_toTopOf="@+id/imageFont11" />
+        app:layout_constraintStart_toStartOf="@+id/imageFont1"
+        app:layout_constraintTop_toTopOf="@+id/imageFont1" />
 
     <LinearLayout
         android:layout_width="132dp"
         android:layout_height="60dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="6dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="69dp">
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="@+id/view4">
 
         <ImageButton
             android:id="@+id/imageButton6"
@@ -167,72 +169,51 @@
             app:srcCompat="@drawable/underline" />
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/openButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="41dp"
-        android:backgroundTint="#FFFFFF"
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="131dp"
+        android:background="@drawable/button3_top_border"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/arrow_right" />
+        app:layout_constraintTop_toBottomOf="@+id/plain_text_input">
 
-    <View
-        android:id="@+id/view3"
-        android:layout_width="260dp"
-        android:layout_height="846dp"
-        android:background="@drawable/borders"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <ImageButton
+            android:id="@+id/saveButton"
+            android:layout_width="104dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/button3"
+            app:srcCompat="@drawable/save" />
 
-    <ImageButton
-        android:id="@+id/uploadButton"
-        android:layout_width="142dp"
-        android:layout_height="142dp"
-        android:background="@drawable/button3_borders"
-        app:srcCompat="@drawable/upload_2_1"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="402dp" />
+        <ImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="92dp"
+            android:layout_height="91dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/button3"
+            app:srcCompat="@drawable/share_1" />
 
-    <ImageButton
-        android:id="@+id/shareButton"
-        android:layout_width="142dp"
-        android:layout_height="142dp"
-        android:background="@drawable/button3_borders"
-        app:srcCompat="@drawable/share_1"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="227dp" />
+        <ImageButton
+            android:id="@+id/uploadButton"
+            android:layout_width="98dp"
+            android:layout_height="93dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/button3"
+            app:srcCompat="@drawable/upload_1" />
 
-    <ImageButton
-        android:id="@+id/saveButton"
-        android:layout_width="142dp"
-        android:layout_height="142dp"
-        android:background="@drawable/button3_borders"
-        app:srcCompat="@drawable/save_1"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="57dp" />
-
-    <ImageButton
-        android:id="@+id/closeButton"
-        android:layout_width="50dp"
-        android:layout_height="123dp"
-        android:backgroundTint="#DBF4AD"
-        android:scaleType="center"
-        app:srcCompat="@drawable/arrow_left"
-        tools:layout_editor_absoluteX="204dp"
-        tools:layout_editor_absoluteY="699dp" />
-
-    <ImageButton
-        android:id="@+id/exitButton"
-        android:layout_width="142dp"
-        android:layout_height="142dp"
-        android:background="@drawable/button3_borders"
-        app:srcCompat="@drawable/exit_1"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="579dp" />
+        <ImageButton
+            android:id="@+id/quitButton"
+            android:layout_width="94dp"
+            android:layout_height="91dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/button3"
+            app:srcCompat="@drawable/quit_1" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
