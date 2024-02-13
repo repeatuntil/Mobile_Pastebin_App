@@ -12,10 +12,12 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.S3Object;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -30,7 +32,16 @@ public class TextEditor extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_editor);
 
-        _fileId = getIntent().getExtras().getInt("fileId");
+        //Параметры открытого окна
+        Bundle arguments = getIntent().getExtras();
+
+        _fileId = arguments.getInt("fileId");
+
+        OpenTextEditorStatus openStat = (OpenTextEditorStatus) arguments.get("openStat");
+        if (openStat == OpenTextEditorStatus.OldFile)
+        {
+            getFile();
+        }
     }
 
     private File saveTextInFile(String text) {
@@ -92,5 +103,42 @@ public class TextEditor extends Activity {
 
         //Очистка текста в служебном файле
         saveTextInFile("");
+    }
+
+    private void getFile() {
+        //Подключение к s3 серверу
+        String accessKey = "YCAJEL4iy2T_galhGQdLy4yWj";
+        String secretKey = "YCPy2-dfJPDUTUz1LLZHCq2mW2cWgaqkPi0qC5mn";
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials (accessKey, secretKey);
+
+        ClientConfiguration clientConfig = new ClientConfiguration();
+        clientConfig.setProtocol(Protocol.HTTPS);
+        AmazonS3Client s3Client = new AmazonS3Client(awsCreds, clientConfig);
+        s3Client.setRegion(Region.getRegion(Regions.US_EAST_1));
+        s3Client.setEndpoint("storage.yandexcloud.net");
+
+        String bucketName = "osgyqgrczgejueayrttvztamhzyawribhyjveaxyifjmgtgckw";
+        String keyName = String.valueOf(_fileId);
+
+        //Загрузка файла на s3
+        ExecutorService service = Executors.newSingleThreadExecutor();
+
+        Future<String> future = service.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return s3Client.getObjectAsString(bucketName, keyName);
+            }
+        });
+
+        try {
+            String text = future.get();
+            // Вставляем текст в редактор
+            EditText textEditor = findViewById(R.id.plain_text_input);
+            textEditor.setText(text);
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        service.shutdown();
     }
 }

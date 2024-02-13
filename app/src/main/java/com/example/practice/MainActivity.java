@@ -80,9 +80,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             int fileId = addDocIntoScrollView("Unnamed");
             Intent openTextEditorActivity = new Intent(this, TextEditor.class);
             openTextEditorActivity.putExtra("fileId", fileId);
+            openTextEditorActivity.putExtra("openStat", OpenTextEditorStatus.NewFile);
             startActivity(openTextEditorActivity);
         }
         else {
+            // TODO: Открывая старый файл стоит передавать в качестве параметра "fileId" Id нажатой кнопки, и также OldFile как "OpenStat"
             System.out.println(clickedButton.getId());
         }
     }
