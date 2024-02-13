@@ -10,6 +10,11 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton addNewDocumentButton;
     private ImageButton toSettingsButton;
@@ -19,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
     );
+
+    final int mod = 69_273_666, hashPrime = 31, maxLength = 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +43,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private int countHash(String docName) {
+
+        int n = docName.length(), currentHash = 0;
+        for (int index = 0; index < n; index++) {
+            currentHash = (currentHash * hashPrime + docName.charAt(index)) % mod;
+        }
+        return currentHash;
+    }
+
     private void addDocIntoScrollView(String docName) {
         // Добавить на панель новую кнопку с надписью. Доработать
         Button newDocument = new Button(this);
+
         newDocument.setText(docName);
+        int docHash = countHash(docName);
+
+        newDocument.setId(docHash);
+        newDocument.setOnClickListener(this);
+
         mainScrollLayout.addView(newDocument, linearLayoutParams);
     }
 
@@ -56,6 +78,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             addDocIntoScrollView("Unnamed");
             Intent openTextEditorActivity = new Intent(this, TextEditor.class);
             startActivity(openTextEditorActivity);
+        }
+        else {
+            System.out.println(clickedButton.getId());
         }
     }
 
