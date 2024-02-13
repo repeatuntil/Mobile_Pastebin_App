@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return currentHash;
     }
 
-    private void addDocIntoScrollView(String docName) {
+    private int addDocIntoScrollView(String docName) {
         // Добавить на панель новую кнопку с надписью. Доработать
         Button newDocument = new Button(this);
 
@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         newDocument.setOnClickListener(this);
 
         mainScrollLayout.addView(newDocument, linearLayoutParams);
+
+        return docHash;
     }
 
     @Override
@@ -75,8 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (clickedButton.getId() == R.id.addButton) {
             // TODO: Здесь надо будет сделать добавление нового документа в базу данных
             // Открытие TextEditor activity
-            addDocIntoScrollView("Unnamed");
+            int fileId = addDocIntoScrollView("Unnamed");
             Intent openTextEditorActivity = new Intent(this, TextEditor.class);
+            openTextEditorActivity.putExtra("fileId", fileId);
             startActivity(openTextEditorActivity);
         }
         else {
