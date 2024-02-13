@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DBF4AD"
-    android:layoutMode="opticalBounds">
+    android:layoutMode="opticalBounds"
+    tools:context=".Settings">
 
     <ImageButton
         android:id="@+id/imageButton"
