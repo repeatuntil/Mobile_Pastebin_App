@@ -17,7 +17,7 @@
         android:background="@drawable/button2_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cog_1"
+        android:src="@drawable/cog_1"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -29,7 +29,7 @@
         android:background="@drawable/button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plus_1"
+        android:src="@drawable/plus_1"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -40,7 +40,7 @@
         android:layout_marginTop="287dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_2" />
+        android:src="@drawable/rectangle_2" />
 
     <ImageView
         android:id="@+id/logoView"
@@ -50,7 +50,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/polygon_1"
+        android:src="@drawable/polygon_1"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -61,7 +61,7 @@
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="@+id/logoView"
         app:layout_constraintTop_toTopOf="@+id/logoView"
-        app:srcCompat="@drawable/svgrepo_iconcarrier"
+        android:src="@drawable/svgrepo_iconcarrier"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -72,7 +72,7 @@
         android:layout_marginTop="176dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_5" />
+        android:src="@drawable/rectangle_5" />
 
     <ImageButton
         android:id="@+id/grid_even"
@@ -83,7 +83,7 @@
         android:background="@drawable/button3"
         app:layout_constraintEnd_toEndOf="@+id/mainPanel"
         app:layout_constraintTop_toTopOf="@+id/mainPanel"
-        app:srcCompat="@drawable/grid_even_1"
+        android:src="@drawable/grid_even_1"
         tools:ignore="MissingConstraints" />
 
     <ScrollView
@@ -123,7 +123,7 @@
         android:background="@drawable/button3"
         app:layout_constraintEnd_toEndOf="@+id/mainPanel"
         app:layout_constraintTop_toTopOf="@+id/mainPanel"
-        app:srcCompat="@drawable/align_left_1"
+        android:src="@drawable/align_left_1"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -135,7 +135,7 @@
         android:background="@drawable/button3"
         app:layout_constraintEnd_toEndOf="@+id/mainPanel"
         app:layout_constraintTop_toTopOf="@+id/mainPanel"
-        app:srcCompat="@drawable/sort_one"
+        android:src="@drawable/sort_one"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -147,7 +147,7 @@
         android:background="@drawable/button3"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:srcCompat="@drawable/chevron_down_1"
+        android:src="@drawable/chevron_down_1"
         tools:ignore="MissingConstraints" />
 
 

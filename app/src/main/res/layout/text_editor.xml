@@ -24,7 +24,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_12_1" />
+        android:src="@drawable/rectangle_12_1" />
 
     <View
         android:id="@+id/sep_line1"
@@ -73,7 +73,7 @@
         android:layout_marginTop="69dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_12_1" />
+        android:src="@drawable/rectangle_12_1" />
 
 
     <ImageButton
@@ -85,7 +85,7 @@
         android:background="@drawable/undo_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/undo_left_round_1" />
+        android:src="@drawable/undo_left_round_1" />
 
     <ImageButton
         android:id="@+id/doButton"
@@ -96,7 +96,7 @@
         android:background="@drawable/undo_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/resource_do" />
+        android:src="@drawable/resource_do" />
 
     <ImageButton
         android:id="@+id/colorButton"
@@ -107,7 +107,7 @@
         android:background="@drawable/button3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/palette_print_1" />
+        android:src="@drawable/palette_print_1" />
 
     <Spinner
         android:id="@+id/fonts_spinner"
@@ -151,23 +151,21 @@
             android:layout_width="41dp"
             android:layout_height="44dp"
             android:background="@drawable/undo_button"
-            android:src="@android:drawable/btn_star"
-            app:srcCompat="@drawable/bold_1" />
+            android:src="@drawable/bold_1" />
 
         <ImageButton
             android:id="@+id/imageButton7"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:background="@drawable/undo_button"
-            android:src="@android:drawable/btn_star"
-            app:srcCompat="@drawable/italic_1" />
+            android:src="@drawable/italic_1" />
 
         <ImageButton
             android:id="@+id/imageButton9"
             android:layout_width="48dp"
             android:layout_height="45dp"
             android:background="@drawable/undo_button"
-            app:srcCompat="@drawable/underline" />
+            android:src="@drawable/underline" />
     </LinearLayout>
 
     <LinearLayout
@@ -186,7 +184,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/save" />
+            android:src="@drawable/save" />
 
         <ImageButton
             android:id="@+id/shareButton"
@@ -195,7 +193,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/share_1" />
+            android:src="@drawable/share_1" />
 
         <ImageButton
             android:id="@+id/uploadButton"
@@ -204,7 +202,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/upload_1" />
+            android:src="@drawable/upload_1" />
 
         <ImageButton
             android:id="@+id/quitButton"
@@ -213,7 +211,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/quit_1" />
+            android:src="@drawable/quit_1" />
     </LinearLayout>
 
 

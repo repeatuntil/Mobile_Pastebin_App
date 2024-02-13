@@ -15,10 +15,9 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/button4"
-        android:src="@android:drawable/btn_star"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/return_settings" />
+        android:src="@drawable/return_settings" />
 
     <TextView
         android:id="@+id/textSettings"
@@ -57,7 +56,7 @@
                 android:layout_height="76dp"
                 android:layout_weight="1"
                 android:background="@drawable/profile_button"
-                app:srcCompat="@drawable/profile_round" />
+                android:src="@drawable/profile_round" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -75,7 +74,7 @@
                 android:layout_height="86dp"
                 android:layout_weight="1"
                 android:background="@drawable/button3"
-                app:srcCompat="@drawable/arrow_right" />
+                android:src="@drawable/arrow_right" />
 
         </LinearLayout>
 
@@ -97,7 +96,7 @@
                 android:layout_width="79dp"
                 android:layout_height="70dp"
                 android:background="@drawable/confident_button"
-                app:srcCompat="@drawable/confident" />
+                android:src="@drawable/confident" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -115,7 +114,7 @@
                 android:layout_height="86dp"
                 android:layout_weight="1"
                 android:background="@drawable/button3"
-                app:srcCompat="@drawable/arrow_right" />
+                android:src="@drawable/arrow_right" />
         </LinearLayout>
 
         <View
@@ -136,7 +135,7 @@
             android:layout_width="79dp"
             android:layout_height="70dp"
             android:background="@drawable/aboutus_back"
-            app:srcCompat="@drawable/about" />
+            android:src="@drawable/about" />
 
         <TextView
             android:id="@+id/textView8"
@@ -154,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/arrow_right" />
+            android:src="@drawable/arrow_right" />
 
     </LinearLayout>
 
@@ -176,7 +175,7 @@
             android:layout_width="79dp"
             android:layout_height="70dp"
             android:background="@drawable/account_but_back"
-            app:srcCompat="@drawable/remove_profile" />
+            android:src="@drawable/remove_profile" />
 
         <TextView
             android:id="@+id/textView9"
@@ -194,7 +193,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/arrow_right" />
+            android:src="@drawable/arrow_right" />
 
     </LinearLayout>
 
