@@ -60,8 +60,10 @@
         android:layout_height="589dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="132dp"
+        android:gravity="top"
+        android:hint="Введите текст"
         android:inputType="text"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view4" />
 
