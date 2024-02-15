@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // TODO: Здесь будет выгрузка всех текущих документов из бд
 
+        if (FirebaseAuth.getInstance().getCurrentUser() == null){
+            startActivity(new Intent(MainActivity.this, Authorization.class));
+        }
 
     }
 
