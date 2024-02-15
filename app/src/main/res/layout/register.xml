@@ -13,9 +13,9 @@
         android:layout_height="560dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="95dp"
+        android:src="@drawable/reg_form"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/reg_form"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -105,10 +105,12 @@
         android:id="@+id/imagePassword"
         android:layout_width="254dp"
         android:layout_height="54dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="270dp"
         android:src="@drawable/email"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="365dp" />
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
