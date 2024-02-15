@@ -105,7 +105,7 @@
         android:layout_marginTop="3dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="@+id/imageEmail2"
         app:layout_constraintTop_toTopOf="@+id/imageEmail2" />
 
@@ -117,7 +117,7 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="@+id/imagePassword2"
         app:layout_constraintTop_toTopOf="@+id/imagePassword2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
