@@ -22,9 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:src="@drawable/rectangle_12_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_12_1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/sep_line1"
@@ -56,14 +56,15 @@
 
     <EditText
         android:id="@+id/plain_text_input"
-        android:layout_width="404dp"
-        android:layout_height="589dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="132dp"
+        android:layout_width="408dp"
+        android:layout_height="516dp"
+        android:background="@drawable/button3_bottom_border"
+        android:gravity="top"
+        android:hint="Введите текст"
         android:inputType="text"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view4" />
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
 
     <ImageView
         android:id="@+id/imageSize1"
@@ -71,9 +72,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="69dp"
+        android:src="@drawable/rectangle_12_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rectangle_12_1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageButton
@@ -83,9 +84,9 @@
         android:layout_marginStart="139dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/undo_button"
+        android:src="@drawable/undo_left_round_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/undo_left_round_1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/doButton"
@@ -94,9 +95,9 @@
         android:layout_marginStart="207dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/undo_button"
+        android:src="@drawable/resource_do"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/resource_do" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/colorButton"
@@ -105,9 +106,9 @@
         android:layout_marginStart="165dp"
         android:layout_marginTop="69dp"
         android:background="@drawable/button3"
+        android:src="@drawable/palette_print_1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/palette_print_1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/fonts_spinner"
@@ -151,33 +152,45 @@
             android:layout_width="41dp"
             android:layout_height="44dp"
             android:background="@drawable/undo_button"
-            android:src="@android:drawable/btn_star"
-            app:srcCompat="@drawable/bold_1" />
+            android:src="@drawable/bold_1" />
 
         <ImageButton
             android:id="@+id/imageButton7"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:background="@drawable/undo_button"
-            android:src="@android:drawable/btn_star"
-            app:srcCompat="@drawable/italic_1" />
+            android:src="@drawable/italic_1" />
 
         <ImageButton
             android:id="@+id/imageButton9"
             android:layout_width="48dp"
             android:layout_height="45dp"
             android:background="@drawable/undo_button"
-            app:srcCompat="@drawable/underline" />
+            android:src="@drawable/underline" />
+
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="400dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/button3"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Введите название файла..."
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plain_text_input" />
+
     <LinearLayout
-        android:layout_width="412dp"
-        android:layout_height="131dp"
+        android:layout_width="413dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="22dp"
         android:background="@drawable/button3_top_border"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plain_text_input">
+        app:layout_constraintTop_toBottomOf="@+id/editTextText">
 
         <ImageButton
             android:id="@+id/saveButton"
@@ -186,7 +199,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/save" />
+            android:src="@drawable/save" />
 
         <ImageButton
             android:id="@+id/shareButton"
@@ -195,7 +208,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/share_1" />
+            android:src="@drawable/share_1" />
 
         <ImageButton
             android:id="@+id/uploadButton"
@@ -204,7 +217,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/upload_1" />
+            android:src="@drawable/upload_1" />
 
         <ImageButton
             android:id="@+id/quitButton"
@@ -213,7 +226,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/button3"
-            app:srcCompat="@drawable/quit_1" />
+            android:src="@drawable/quit_1" />
     </LinearLayout>
 
 
