@@ -19,6 +19,9 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class Registration extends Activity {
 
     private FirebaseAuth mAuth;
@@ -44,6 +47,12 @@ public class Registration extends Activity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
 
+        String Base_url = "http://api/v1/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Base_url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +65,15 @@ public class Registration extends Activity {
                                     if (task.isSuccessful()){
                                         reference.child("Users").child(mAuth.getCurrentUser().getUid()).child("email").setValue(emailRegister.getText().toString());
                                         startActivity(new Intent(Registration.this, MainActivity.class));
+
+                                        //Часть с Docker сервером
+                                        User newUser = new User();
+                                        newUser.email = emailRegister.getText().toString();
+                                        newUser.password = passwordRegister.getText().toString();
+
+                                        ServiseAPI service = retrofit.create(ServiseAPI.class);
+
+                                        service.createNewUser(newUser);
                                     }
                                     else if (task.getException() instanceof FirebaseAuthUserCollisionException){
                                         Toast.makeText(Registration.this, "user already exists", Toast.LENGTH_SHORT).show();
