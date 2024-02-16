@@ -26,7 +26,6 @@ public class Authorization extends Activity {
     private Button signInButton;
     private TextView registerTransfer;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
