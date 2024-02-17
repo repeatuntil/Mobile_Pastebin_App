@@ -31,8 +31,10 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="330dp"
-        android:layout_height="647dp"
+        android:layout_height="match_parent"
+
         android:layout_marginBottom="4dp"
+        android:layout_marginTop="250dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/about_us"
         android:textAlignment="viewStart"
@@ -40,5 +42,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/button4"
+        android:src="@drawable/return_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/return_settings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

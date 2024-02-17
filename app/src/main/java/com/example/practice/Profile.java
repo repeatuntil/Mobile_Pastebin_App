@@ -20,7 +20,7 @@ public class Profile extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent openTextEditorActivity = new Intent(this, MainActivity.class);
+        Intent openTextEditorActivity = new Intent(this, Settings.class);
         startActivity(openTextEditorActivity);
     }
 }
