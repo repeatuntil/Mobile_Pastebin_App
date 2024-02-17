@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#DBF4AD"
     android:layoutMode="opticalBounds"
-    tools:context=".Settings">
+    tools:context=".Profile">
 
     <ImageButton
         android:id="@+id/BackButton"
@@ -15,7 +15,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/button4"
-        android:src="@android:drawable/btn_star"
+        android:src="@drawable/return_settings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/return_settings" />
