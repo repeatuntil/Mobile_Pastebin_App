@@ -216,6 +216,9 @@ public class TextEditor extends Activity implements View.OnClickListener {
         if (clickedButton.getId() == R.id.saveButton) {
             putFile();
         }
+        else {
+            deleteFile();
+        }
         Intent openTextEditorActivity = new Intent(this, MainActivity.class);
         startActivity(openTextEditorActivity);
     }
