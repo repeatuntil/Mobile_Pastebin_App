@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onResponse(Call<List<DocDescriptionWithId>> call, Response<List<DocDescriptionWithId>> response) {
                 if (response.isSuccessful()) {
                     List<DocDescriptionWithId> buttons = response.body();
+
                     // TODO: Создать кнопки для файлов. Принимайте name как название файла и body как id кнопки
                 } else {
                     System.out.println("error1!");
