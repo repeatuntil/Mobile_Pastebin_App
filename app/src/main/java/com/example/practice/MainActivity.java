@@ -18,11 +18,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton addNewDocumentButton;
@@ -33,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DatabaseReference reference;
     private FirebaseAuth mAuth;
 
+    private String Base_url;
+    private Retrofit retrofit;
+    private ServiseAPI service;
 
     private final LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
@@ -54,6 +64,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // TODO: Здесь будет выгрузка всех текущих документов из бд
 
+        Base_url = "http://127.0.0.1:8000/api/v1/";
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(Base_url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        service = retrofit.create(ServiseAPI.class);
+
+        Call<List<DocDescriptionWithId>> call = service.getAllDocs();
+
+        call.enqueue(new Callback<List<DocDescriptionWithId>>() {
+            @Override
+            public void onResponse(Call<List<DocDescriptionWithId>> call, Response<List<DocDescriptionWithId>> response) {
+                if (response.isSuccessful()) {
+                    // TODO: Создать кнопки для файлов. Принимайте name как название файла и body как id кнопки
+                } else {
+                    System.out.println("error1!");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<DocDescriptionWithId>> call, Throwable t) {
+                System.out.println(t.toString());
+            }
+        });
     }
 
     @Override
@@ -105,11 +141,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             addDocumentToDB();
             // TODO: Здесь надо будет сделать добавление нового документа в базу данных
             // Открытие TextEditor activity
-            int fileId = addDocIntoScrollView("Unnamed");
+            String nameFile = "Unnamed";
+            int fileId = addDocIntoScrollView(nameFile);
             Intent openTextEditorActivity = new Intent(this, TextEditor.class);
             openTextEditorActivity.putExtra("fileId", fileId);
             openTextEditorActivity.putExtra("openStat", OpenTextEditorStatus.NewFile);
             startActivity(openTextEditorActivity);
+
+            //Часть с работой Docker-сервера
+            DocDescription doc = new DocDescription(nameFile, String.valueOf(fileId));
+
+            Call<List<DocDescriptionWithId>> call = service.createNewDoc(doc);
+
+            call.enqueue(new Callback<List<DocDescriptionWithId>>() {
+                @Override
+                public void onResponse(Call<List<DocDescriptionWithId>> call, Response<List<DocDescriptionWithId>> response) {
+                    if (response.isSuccessful()) {
+                        System.out.println("success");
+                    } else {
+                        System.out.println("error1!");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<DocDescriptionWithId>> call, Throwable t) {
+                    System.out.println(t.toString());
+                }
+            });
+
         }
         else {
             // TODO: Открывая старый файл стоит передавать в качестве параметра "fileId" Id нажатой кнопки, и также OldFile как "OpenStat"

@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.File;
 import java.util.List;
 
 import retrofit2.Call;
@@ -38,6 +39,10 @@ public class Registration extends Activity {
     private EditText repeatPasswordRegister;
     private Button registerButton;
 
+    private String Base_url;
+    private Retrofit retrofit;
+    private ServiseAPI service;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,12 +57,14 @@ public class Registration extends Activity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
 
-        String Base_url = "http://api/v1/";
+        Base_url = "http://127.0.0.1:8000/api/v1/";
 
-        Retrofit retrofit = new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl(Base_url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
+        service = retrofit.create(ServiseAPI.class);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,11 +79,11 @@ public class Registration extends Activity {
                                         startActivity(new Intent(Registration.this, MainActivity.class));
 
                                         //Часть с Docker сервером
-                                        User newUser = new User();
-                                        newUser.email = emailRegister.getText().toString();
-                                        newUser.password = passwordRegister.getText().toString();
 
-                                        ServiseAPI service = retrofit.create(ServiseAPI.class);
+                                        String newUserEmail = emailRegister.getText().toString();
+                                        String newUserPassword = passwordRegister.getText().toString();
+
+                                        User newUser = new User(newUserEmail, newUserPassword);
 
                                         Call<List<Tokens>> call = service.createNewUser(newUser);
 
@@ -86,8 +93,14 @@ public class Registration extends Activity {
                                                 if (response.isSuccessful()) {
                                                     List<Tokens> data = response.body();
                                                     Tokens tokens = data.get(0);
+
                                                     System.out.println(tokens.access);
                                                     System.out.println(tokens.refresh);
+
+                                                    File pathToStorage = getApplicationContext().getFilesDir();
+
+                                                    tokens.writeAccess(pathToStorage);
+                                                    tokens.writeRefresh(pathToStorage);
                                                 } else {
                                                     System.out.println("error1!");
                                                 }
@@ -95,7 +108,7 @@ public class Registration extends Activity {
 
                                             @Override
                                             public void onFailure(Call<List<Tokens>> call, Throwable t) {
-                                                System.out.println("error2!");
+                                                System.out.println(t.toString());
                                             }
                                         });
 
