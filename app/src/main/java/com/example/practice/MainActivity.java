@@ -3,13 +3,13 @@ package com.example.practice;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -19,12 +19,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -64,11 +68,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // TODO: Здесь будет выгрузка всех текущих документов из бд
 
-        Base_url = "http://127.0.0.1:8000/api/v1/";
+        Base_url = "http://127.0.0.1:8000/";
+
+        Context context = getApplicationContext();
+
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+            @Override public okhttp3.Response intercept(Chain chain) throws IOException {
+                String tokenAccess = "";
+
+                File filePath = new File(context.getFilesDir(), "access.txt");
+
+                try(FileReader reader = new FileReader(filePath))
+                {
+                    // читаем посимвольно
+                    int c;
+                    while((c=reader.read())!=-1){
+                        tokenAccess = tokenAccess + (char)c;
+                    }
+                }
+                catch(IOException ex){
+
+                    System.out.println(ex.getMessage());
+                }
+                Request request = chain.request();
+                Request newReq = request.newBuilder()
+                        .addHeader("Authorization", tokenAccess)
+                        .build();
+                return chain.proceed(newReq);
+            }
+        }).build();
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(Base_url)
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
                 .build();
 
         service = retrofit.create(ServiseAPI.class);

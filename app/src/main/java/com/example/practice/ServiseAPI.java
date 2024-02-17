@@ -8,16 +8,16 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ServiseAPI {
-    @POST("auth/register/")
+    @POST("api/v1/auth/register/")
     Call<List<Tokens>> createNewUser(@Body User user);
 
-    @POST("auth/token/")
+    @POST("api/v1/auth/token/")
     Call<List<Tokens>> authorizationUser(@Body User user);
 
-    @POST("documents/")
+    @POST("api/v1/documents/")
     Call<List<DocDescriptionWithId>> createNewDoc(@Body DocDescription doc);
 
-    @GET("documents/")
+    @GET("api/v1/documents/")
     Call<List<DocDescriptionWithId>> getAllDocs();
 
     /*

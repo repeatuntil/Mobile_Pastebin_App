@@ -20,8 +20,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,7 +61,7 @@ public class Registration extends Activity {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
 
-        Base_url = "http://127.0.0.1:8000/api/v1/";
+        Base_url = "http://127.0.0.1:8000/";
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(Base_url)
@@ -108,6 +112,7 @@ public class Registration extends Activity {
 
                                             @Override
                                             public void onFailure(Call<List<Tokens>> call, Throwable t) {
+                                                System.out.println("error2");
                                                 System.out.println(t.toString());
                                             }
                                         });

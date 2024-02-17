@@ -52,7 +52,7 @@ public class Authorization extends Activity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        Base_url = "http://127.0.0.1:8000/api/v1/";
+        Base_url = "http://127.0.0.1:8000/";
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(Base_url)
