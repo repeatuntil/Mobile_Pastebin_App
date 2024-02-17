@@ -2,9 +2,11 @@ package com.example.practice;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.Protocol;
@@ -27,14 +29,17 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class TextEditor extends Activity {
+public class TextEditor extends Activity implements View.OnClickListener {
 
     private int _fileId;
+    ImageButton quit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_editor);
+        quit = findViewById(R.id.quitButton);
+        quit.setOnClickListener(this);
 
         //Параметры открытого окна
         Bundle arguments = getIntent().getExtras();
@@ -108,6 +113,7 @@ public class TextEditor extends Activity {
     }
 
     private void putFile() {
+
         EditText textEditor = findViewById(R.id.plain_text_input);
         String text = textEditor.getText().toString();
 
@@ -204,5 +210,11 @@ public class TextEditor extends Activity {
         }
 
         service.shutdown();
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent openTextEditorActivity = new Intent(this, MainActivity.class);
+        startActivity(openTextEditorActivity);
     }
 }
