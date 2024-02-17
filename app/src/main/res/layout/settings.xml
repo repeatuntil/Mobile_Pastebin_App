@@ -125,6 +125,7 @@
             android:background="#000000" />
 
     <LinearLayout
+        android:id="@+id/about_us"
         android:layout_width="292dp"
         android:layout_height="140dp"
         android:layout_gravity="center_horizontal"
