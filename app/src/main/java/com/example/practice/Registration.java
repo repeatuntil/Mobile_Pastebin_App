@@ -19,6 +19,11 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -73,7 +78,27 @@ public class Registration extends Activity {
 
                                         ServiseAPI service = retrofit.create(ServiseAPI.class);
 
-                                        service.createNewUser(newUser);
+                                        Call<List<Tokens>> call = service.createNewUser(newUser);
+
+                                        call.enqueue(new Callback<List<Tokens>>() {
+                                            @Override
+                                            public void onResponse(Call<List<Tokens>> call, Response<List<Tokens>> response) {
+                                                if (response.isSuccessful()) {
+                                                    List<Tokens> data = response.body();
+                                                    Tokens tokens = data.get(0);
+                                                    System.out.println(tokens.access);
+                                                    System.out.println(tokens.refresh);
+                                                } else {
+                                                    System.out.println("error1!");
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onFailure(Call<List<Tokens>> call, Throwable t) {
+                                                System.out.println("error2!");
+                                            }
+                                        });
+
                                     }
                                     else if (task.getException() instanceof FirebaseAuthUserCollisionException){
                                         Toast.makeText(Registration.this, "user already exists", Toast.LENGTH_SHORT).show();
