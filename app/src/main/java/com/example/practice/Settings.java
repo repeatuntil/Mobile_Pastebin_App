@@ -5,16 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Settings extends Activity {
+public class Settings extends Activity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
 
     private TextView logoutField;
     private ImageButton returnField;
+    LinearLayout toProfile;
 
 
     @Override
@@ -26,7 +28,8 @@ public class Settings extends Activity {
 
         logoutField = findViewById(R.id.textView9);
         returnField = findViewById(R.id.imageButton);
-
+        toProfile = findViewById(R.id.toProfile);
+        toProfile.setOnClickListener(this);
 
         if (FirebaseAuth.getInstance().getCurrentUser() == null){
             startActivity(new Intent(Settings.this, Authorization.class));
@@ -56,5 +59,11 @@ public class Settings extends Activity {
         if (FirebaseAuth.getInstance().getCurrentUser() == null){
             startActivity(new Intent(Settings.this, Authorization.class));
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent openTextEditorActivity = new Intent(this, Profile.class);
+        startActivity(openTextEditorActivity);
     }
 }
