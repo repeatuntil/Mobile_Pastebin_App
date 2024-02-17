@@ -20,8 +20,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
 import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -74,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         service = retrofit.create(ServiseAPI.class);
 
         Call<List<DocDescriptionWithId>> call = service.getAllDocs();
-
         call.enqueue(new Callback<List<DocDescriptionWithId>>() {
             @Override
             public void onResponse(Call<List<DocDescriptionWithId>> call, Response<List<DocDescriptionWithId>> response) {
@@ -143,7 +145,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             addDocumentToDB();
             // TODO: Здесь надо будет сделать добавление нового документа в базу данных
             // Открытие TextEditor activity
-            String nameFile = "Unnamed";
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            String nameFile = dateFormat.format(date);
             int fileId = addDocIntoScrollView(nameFile);
             Intent openTextEditorActivity = new Intent(this, TextEditor.class);
             openTextEditorActivity.putExtra("fileId", fileId);
