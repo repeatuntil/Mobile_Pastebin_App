@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "28841416095",
+    "project_id": "fbpracric",
+    "storage_bucket": "fbpracric.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28841416095:android:182d574f0543fc631b59aa",
+        "android_client_info": {
+          "package_name": "com.example.practice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2kB98823gAkGAXrJhCwHy8MhMdeuk1rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

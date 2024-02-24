@@ -1,3 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">practice</string>
+    <string name="font_prompt">Font</string>
+    <string name="size_prompt">Size</string>
+
+    <string-array name="font_arrays">
+        <item>Arial</item>
+        <item>Serif</item>
+        <item>Times new roman</item>
+        <item>Comic sans</item>
+        <item>Montserrat</item>
+        <item>pacifico</item>
+    </string-array>
+
+    <string-array name="sizes_arrays">
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>18</item>
+        <item>20</item>
+        <item>24</item>
+        <item>32</item>
+    </string-array>
+
 </resources>

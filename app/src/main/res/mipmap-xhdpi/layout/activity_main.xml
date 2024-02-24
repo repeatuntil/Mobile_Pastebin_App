@@ -9,70 +9,69 @@
 
 
     <ImageButton
-        android:id="@+id/settingsButton"
+        android:id="@+id/imageButton2"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginStart="292dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="298dp"
+        android:layout_marginTop="68dp"
         android:background="@drawable/button2_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/cog_1"
+        app:srcCompat="@drawable/cog_1"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/addButton"
+        android:id="@+id/imageButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="68dp"
         android:background="@drawable/button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/plus_1"
+        app:srcCompat="@drawable/plus_1"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="348dp"
-        android:layout_height="491dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="287dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/rectangle_2" />
+        android:layout_width="320dp"
+        android:layout_height="469dp"
+        android:layout_marginStart="1dp"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2"
+        app:srcCompat="@drawable/rectangle_2" />
 
     <ImageView
-        android:id="@+id/logoView"
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/polygon_1"
+        app:srcCompat="@drawable/polygon_1"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/logoView"
-        app:layout_constraintTop_toTopOf="@+id/logoView"
-        android:src="@drawable/svgrepo_iconcarrier"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/svgrepo_iconcarrier"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/mainPanel"
-        android:layout_width="342dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="176dp"
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="192dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/rectangle_5" />
+        app:srcCompat="@drawable/rectangle_5" />
 
     <ImageButton
         android:id="@+id/grid_even"
@@ -81,38 +80,37 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="123dp"
         android:background="@drawable/button3"
-        app:layout_constraintEnd_toEndOf="@+id/mainPanel"
-        app:layout_constraintTop_toTopOf="@+id/mainPanel"
-        android:src="@drawable/grid_even_1"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/grid_even_1"
         tools:ignore="MissingConstraints" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="322dp"
         android:layout_height="367dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="@+id/imageView9">
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="288dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/scrollViewLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
         </LinearLayout>
 
     </ScrollView>
 
     <View
-        android:id="@+id/sepView"
-        android:layout_width="342dp"
+        android:id="@+id/view"
+        android:layout_width="320dp"
         android:layout_height="2dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginBottom="103dp"
+        android:layout_marginTop="375dp"
         android:background="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-        app:layout_constraintStart_toStartOf="@+id/imageView9" />
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
     <ImageButton
         android:id="@+id/align_left"
@@ -121,33 +119,33 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="17dp"
         android:background="@drawable/button3"
-        app:layout_constraintEnd_toEndOf="@+id/mainPanel"
-        app:layout_constraintTop_toTopOf="@+id/mainPanel"
-        android:src="@drawable/align_left_1"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/align_left_1"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/sort_one"
         android:layout_width="91dp"
         android:layout_height="62dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="232dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="219dp"
         android:background="@drawable/button3"
-        app:layout_constraintEnd_toEndOf="@+id/mainPanel"
-        app:layout_constraintTop_toTopOf="@+id/mainPanel"
-        android:src="@drawable/sort_one"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/sort_one_1"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/arrowButton1"
         android:layout_width="306dp"
         android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/button3"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-        app:layout_constraintStart_toStartOf="@+id/imageView9"
-        android:src="@drawable/chevron_down_1"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:srcCompat="@drawable/chevron_down_1"
         tools:ignore="MissingConstraints" />
 
 

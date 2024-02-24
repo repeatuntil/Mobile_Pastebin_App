@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DBF4AD">
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="320dp"
+        android:layout_height="560dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="95dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reg_form"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageAgain"
+        android:layout_width="254dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:srcCompat="@drawable/email" />
+
+    <TextView
+        android:id="@+id/textAgain"
+        android:layout_width="230dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="340dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:foregroundTint="#FFFFFF"
+        android:text="Повторный пароль"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textPassword"
+        android:layout_width="118dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="226dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:foregroundTint="#FFFFFF"
+        android:text="Пароль"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="189dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="65dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Регистрация"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="118dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="98dp"
+        android:background="#FFFFFF"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:foregroundTint="#FFFFFF"
+        android:text="Почта"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageEmail"
+        android:layout_width="254dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="142dp"
+        android:layout_marginEnd="27dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:srcCompat="@drawable/email"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imagePassword"
+        android:layout_width="254dp"
+        android:layout_height="54dp"
+        app:srcCompat="@drawable/email"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        style="@android:style/Widget.AutoCompleteTextView"
+        android:layout_width="245dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:inputType="textEmailAddress"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/imageEmail"
+        app:layout_constraintTop_toTopOf="@+id/imageEmail"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="242dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/imagePassword"
+        app:layout_constraintTop_toTopOf="@+id/imagePassword"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/reg_button"
+        android:text="Зарегистрироваться"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="246dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/imageAgain"
+        app:layout_constraintTop_toTopOf="@+id/imageAgain" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

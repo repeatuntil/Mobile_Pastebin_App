@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:backgroundTintMode="multiply"
+    tools:context=".TextEditor">
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="414dp"
+        android:layout_height="135dp"
+        android:background="#79ADDC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageFont1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/rectangle_12_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/sep_line1"
+        android:layout_width="2dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="273dp"
+        android:layout_marginTop="16dp"
+        android:background="#08605F"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+    <View
+        android:id="@+id/sep_line2"
+        android:layout_width="2dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="16dp"
+        android:background="#08605F"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+    <View
+        android:id="@+id/main_line"
+        android:layout_width="413dp"
+        android:layout_height="2dp"
+        android:background="#08605F"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/plain_text_input"
+        android:layout_width="408dp"
+        android:layout_height="516dp"
+        android:background="@drawable/button3_bottom_border"
+        android:gravity="top"
+        android:hint="Введите текст"
+        android:inputType="text"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+    <ImageView
+        android:id="@+id/imageSize1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="69dp"
+        android:src="@drawable/rectangle_12_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/undoButton"
+        android:layout_width="44dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/undo_button"
+        android:src="@drawable/undo_left_round_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/doButton"
+        android:layout_width="47dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="207dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/undo_button"
+        android:src="@drawable/resource_do"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/colorButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="69dp"
+        android:background="@drawable/button3"
+        android:src="@drawable/palette_print_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/fonts_spinner"
+        style="@android:style/Widget.Spinner.DropDown"
+        android:layout_width="104dp"
+        android:layout_height="42dp"
+        android:background="@drawable/for_spins"
+        android:backgroundTint="#08605F"
+        android:entries="@array/font_arrays"
+        android:prompt="@string/font_prompt"
+        android:spinnerMode="dropdown"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/imageSize1"
+        app:layout_constraintTop_toTopOf="@+id/imageSize1" />
+
+    <Spinner
+        android:id="@+id/size_spinner"
+        style="@android:style/Widget.Spinner.DropDown"
+        android:layout_width="104dp"
+        android:layout_height="42dp"
+        android:background="@drawable/for_spins"
+        android:backgroundTint="#08605F"
+        android:entries="@array/sizes_arrays"
+        android:prompt="@string/size_prompt"
+        android:spinnerMode="dropdown"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/imageFont1"
+        app:layout_constraintTop_toTopOf="@+id/imageFont1" />
+
+    <LinearLayout
+        android:layout_width="132dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="6dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="@+id/view4">
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="41dp"
+            android:layout_height="44dp"
+            android:background="@drawable/undo_button"
+            android:src="@drawable/bold_1" />
+
+        <ImageButton
+            android:id="@+id/imageButton7"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:background="@drawable/undo_button"
+            android:src="@drawable/italic_1" />
+
+        <ImageButton
+            android:id="@+id/imageButton9"
+            android:layout_width="48dp"
+            android:layout_height="45dp"
+            android:background="@drawable/undo_button"
+            android:src="@drawable/underline" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="400dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/button3"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Введите название файла..."
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plain_text_input" />
+
+    <LinearLayout
+        android:layout_width="413dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/button3_top_border"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText">
+
+        <ImageButton
+            android:id="@+id/saveButton"
+            android:layout_width="104dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/button3"
+            android:src="@drawable/save" />
+
+        <ImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="92dp"
+            android:layout_height="91dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/button3"
+            android:src="@drawable/share_1" />
+
+        <ImageButton
+            android:id="@+id/uploadButton"
+            android:layout_width="98dp"
+            android:layout_height="93dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/button3"
+            android:src="@drawable/upload_1" />
+
+        <ImageButton
+            android:id="@+id/quitButton"
+            android:layout_width="94dp"
+            android:layout_height="91dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/button3"
+            android:src="@drawable/quit_1" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
