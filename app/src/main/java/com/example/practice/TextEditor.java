@@ -30,7 +30,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class TextEditor extends Activity implements View.OnClickListener {
-
+    ImageButton quit;
+    ImageButton save;
     private int _fileId;
     ImageButton quit;
 
@@ -38,9 +39,9 @@ public class TextEditor extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_editor);
-        quit = findViewById(R.id.quitButton);
+        save = findViewById(R.id.saveButton);
         quit.setOnClickListener(this);
-
+        save.setOnClickListener(this);
         //Параметры открытого окна
         Bundle arguments = getIntent().getExtras();
 
@@ -211,9 +212,14 @@ public class TextEditor extends Activity implements View.OnClickListener {
 
         service.shutdown();
     }
-
     @Override
-    public void onClick(View view) {
+    public void onClick(View clickedButton) {
+        if (clickedButton.getId() == R.id.saveButton) {
+            putFile();
+        }
+        else {
+            deleteFile();
+        }
         Intent openTextEditorActivity = new Intent(this, MainActivity.class);
         startActivity(openTextEditorActivity);
     }

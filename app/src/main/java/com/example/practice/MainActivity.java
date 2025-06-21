@@ -3,13 +3,13 @@ package com.example.practice;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -18,11 +18,29 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
+
 import java.util.HashMap;
 import java.util.List;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton addNewDocumentButton;
@@ -33,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DatabaseReference reference;
     private FirebaseAuth mAuth;
 
+    private String Base_url;
+    private Retrofit retrofit;
+    private ServiseAPI service;
 
     private final LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
@@ -54,6 +75,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // TODO: Здесь будет выгрузка всех текущих документов из бд
 
+        Base_url = "http://127.0.0.1:8000/";
+
+        Context context = getApplicationContext();
+
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+            @Override public okhttp3.Response intercept(Chain chain) throws IOException {
+                String tokenAccess = "";
+
+                File filePath = new File(context.getFilesDir(), "access.txt");
+
+                try(FileReader reader = new FileReader(filePath))
+                {
+                    // читаем посимвольно
+                    int c;
+                    while((c=reader.read())!=-1){
+                        tokenAccess = tokenAccess + (char)c;
+                    }
+                }
+                catch(IOException ex){
+
+                    System.out.println(ex.getMessage());
+                }
+                Request request = chain.request();
+                Request newReq = request.newBuilder()
+                        .addHeader("Authorization", tokenAccess)
+                        .build();
+                return chain.proceed(newReq);
+            }
+        }).build();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(Base_url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+
+        service = retrofit.create(ServiseAPI.class);
+
+        Call<List<DocDescriptionWithId>> call = service.getAllDocs();
+        call.enqueue(new Callback<List<DocDescriptionWithId>>() {
+            @Override
+            public void onResponse(Call<List<DocDescriptionWithId>> call, Response<List<DocDescriptionWithId>> response) {
+                if (response.isSuccessful()) {
+                    List<DocDescriptionWithId> buttons = response.body();
+
+                    // TODO: Создать кнопки для файлов. Принимайте name как название файла и body как id кнопки
+                } else {
+                    System.out.println("error1!");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<DocDescriptionWithId>> call, Throwable t) {
+                System.out.println(t.toString());
+            }
+        });
     }
 
     @Override
@@ -102,14 +179,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(openSettingsActivity);
             }
         else if (clickedButton.getId() == R.id.addButton) {
-                addDocumentToDB();
-                // TODO: Здесь надо будет сделать добавление нового документа в базу данных
-                // Открытие TextEditor activity
-                int fileId = addDocIntoScrollView("Unnamed");
-                Intent openTextEditorActivity = new Intent(this, TextEditor.class);
-                openTextEditorActivity.putExtra("fileId", fileId);
-                openTextEditorActivity.putExtra("openStat", OpenTextEditorStatus.NewFile);
-                startActivity(openTextEditorActivity);
+            addDocumentToDB();
+            // TODO: Здесь надо будет сделать добавление нового документа в базу данных
+            // Открытие TextEditor activity
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date date = new Date();
+            String nameFile = dateFormat.format(date);
+            int fileId = addDocIntoScrollView(nameFile);
+            Intent openTextEditorActivity = new Intent(this, TextEditor.class);
+            openTextEditorActivity.putExtra("fileId", fileId);
+            openTextEditorActivity.putExtra("openStat", OpenTextEditorStatus.NewFile);
+            startActivity(openTextEditorActivity);
+
+            //Часть с работой Docker-сервера
+            DocDescription doc = new DocDescription(nameFile, String.valueOf(fileId));
+
+            Call<List<DocDescriptionWithId>> call = service.createNewDoc(doc);
+
+            call.enqueue(new Callback<List<DocDescriptionWithId>>() {
+                @Override
+                public void onResponse(Call<List<DocDescriptionWithId>> call, Response<List<DocDescriptionWithId>> response) {
+                    if (response.isSuccessful()) {
+                        System.out.println("success");
+                    } else {
+                        System.out.println("error1!");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<List<DocDescriptionWithId>> call, Throwable t) {
+                    System.out.println(t.toString());
+                }
+            });
         }
         else {
             // TODO: Открывая старый файл стоит передавать в качестве параметра "fileId" Id нажатой кнопки, и также OldFile как "OpenStat"
