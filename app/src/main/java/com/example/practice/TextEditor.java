@@ -33,12 +33,12 @@ public class TextEditor extends Activity implements View.OnClickListener {
     ImageButton quit;
     ImageButton save;
     private int _fileId;
+    ImageButton quit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_editor);
-        quit = findViewById(R.id.quitButton);
         save = findViewById(R.id.saveButton);
         quit.setOnClickListener(this);
         save.setOnClickListener(this);
@@ -114,6 +114,7 @@ public class TextEditor extends Activity implements View.OnClickListener {
     }
 
     private void putFile() {
+
         EditText textEditor = findViewById(R.id.plain_text_input);
         String text = textEditor.getText().toString();
 

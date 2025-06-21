@@ -174,10 +174,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         reference = database.getReference();
 
         if (clickedButton.getId() == R.id.settingsButton) {
-            // Открытие Settings activity
-            Intent openSettingsActivity = new Intent(this, Settings.class);
-            startActivity(openSettingsActivity);
-        }
+                // Открытие Settings activity
+                Intent openSettingsActivity = new Intent(this, Settings.class);
+                startActivity(openSettingsActivity);
+            }
         else if (clickedButton.getId() == R.id.addButton) {
             addDocumentToDB();
             // TODO: Здесь надо будет сделать добавление нового документа в базу данных
@@ -211,7 +211,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     System.out.println(t.toString());
                 }
             });
-
         }
         else {
             // TODO: Открывая старый файл стоит передавать в качестве параметра "fileId" Id нажатой кнопки, и также OldFile как "OpenStat"
